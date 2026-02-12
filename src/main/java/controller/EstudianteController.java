@@ -4,7 +4,6 @@ package controller;
 // POST retorna 201 Created en éxito o 400 Bad Request si el ID ya existe.
 // GET retorna 200 OK con la lista completa de estudiantes registrados.
 
-package org.example.taller1_microapi.controller;
 
 
 import model.Estudiante;
@@ -23,12 +22,12 @@ import java.util.Map;
 public class EstudianteController {
 
     @Autowired
-    private EstudianteService estudianteService;
+    private EstudianteService estudianteSerrvice;
 
     @PostMapping
     public ResponseEntity<?> registrarEstudiante(@RequestBody Estudiante estudiante) {
         try {
-            Estudiante registrado = estudianteService.registrarEstudiante(estudiante);
+            Estudiante registrado = estudianteSerrvice.registrarEstudiante(estudiante);
             Map<String, Object> response = new HashMap<>();
             response.put("mensaje", "Estudiante registrado exitosamente");
             response.put("estudiante", registrado);
@@ -42,6 +41,6 @@ public class EstudianteController {
 
     @GetMapping
     public ResponseEntity<List<Estudiante>> listarEstudiantes() {
-        return ResponseEntity.ok(estudianteService.listarEstudiantes());
+        return ResponseEntity.ok(estudianteSerrvice.listarEstudiantes());
     }
 }
