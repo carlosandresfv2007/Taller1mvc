@@ -41,6 +41,13 @@ jobs:
       - name: Build del artefacto
         run: ./gradlew clean build -x test
 
+      - name: Crear tag
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git tag v1.0.${{ github.run_number }}
+          git push origin v1.0.${{ github.run_number }}
+
       - name: Crear GitHub Release
         uses: softprops/action-gh-release@v2
         with:
