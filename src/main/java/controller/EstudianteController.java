@@ -4,15 +4,12 @@ package controller;
 // POST retorna 201 Created en éxito o 400 Bad Request si el ID ya existe.
 // GET retorna 200 OK con la lista completa de estudiantes registrados.
 
-package org.example.taller1_microapi.controller;
-
-
 import model.Estudiante;
+import service.EstudianteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.EstudianteService;
 
 import java.util.HashMap;
 import java.util.List;
